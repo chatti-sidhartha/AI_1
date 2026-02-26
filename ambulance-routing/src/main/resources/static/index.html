@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visakhapatnam Ambulance Routing System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>🚑 Visakhapatnam Emergency Ambulance Routing System</h1>
+        <p class="subtitle">AI Search Algorithm Comparison Study</p>
+    </header>
+
+    <main class="main-container">
+        <!-- Control Panel -->
+        <aside class="control-panel">
+            <h2>Route Configuration</h2>
+            
+            <div class="form-group">
+                <label for="startNode">Ambulance Location (Start)</label>
+                <select id="startNode">
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="endNode">Patient Location (End)</label>
+                <select id="endNode">
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="traffic">Traffic Condition</label>
+                <select id="traffic">
+                    <option value="LOW">Low Traffic (+1)</option>
+                    <option value="MEDIUM" selected>Medium Traffic (+3)</option>
+                    <option value="HIGH">High Traffic (+7)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="algorithm">Search Algorithm</label>
+                <select id="algorithm">
+                    <option value="BFS">BFS (Breadth-First Search)</option>
+                    <option value="DFS">DFS (Depth-First Search)</option>
+                    <option value="UCS">UCS (Uniform Cost Search)</option>
+                    <option value="GREEDY">Greedy Best-First Search</option>
+                    <option value="A_STAR" selected>A* Search</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button id="findRouteBtn" class="btn btn-primary">
+                    <span class="btn-text">Find Route</span>
+                    <span class="btn-loader" style="display: none;">⏳</span>
+                </button>
+                <button id="clearBtn" class="btn btn-secondary">Clear Graph</button>
+            </div>
+
+            <div class="algorithm-info">
+                <h3>Algorithm Properties</h3>
+                <div id="algorithmDetails">
+                    <p><strong>A* Search</strong></p>
+                    <ul>
+                        <li>Complete: Yes</li>
+                        <li>Optimal: Yes</li>
+                        <li>Uses: f(n) = g(n) + h(n)</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Visualization Panel -->
+        <section class="visualization-panel">
+            <div class="canvas-container">
+                <svg id="graphCanvas" viewBox="0 0 700 520">
+                    <!-- Graph will be drawn here -->
+                </svg>
+            </div>
+            <div class="legend">
+                <span class="legend-item"><span class="dot hospital"></span> Hospital</span>
+                <span class="legend-item"><span class="dot junction"></span> Junction</span>
+                <span class="legend-item"><span class="dot residential"></span> Residential</span>
+                <span class="legend-item"><span class="dot landmark"></span> Landmark</span>
+                <span class="legend-item"><span class="line low"></span> Low Traffic</span>
+                <span class="legend-item"><span class="line medium"></span> Medium Traffic</span>
+                <span class="legend-item"><span class="line high"></span> High Traffic</span>
+            </div>
+        </section>
+
+        <!-- Metrics Dashboard -->
+        <aside class="metrics-panel">
+            <h2>Simulation Results</h2>
+            
+            <div id="resultsContainer" class="results-container">
+                <p class="placeholder-text">Run a simulation to see results</p>
+            </div>
+
+            <div id="pathDisplay" class="path-display" style="display: none;">
+                <h3>Route Path</h3>
+                <div id="pathSteps" class="path-steps"></div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Error Toast -->
+    <div id="errorToast" class="toast error-toast" style="display: none;">
+        <span id="errorMessage"></span>
+        <button onclick="hideToast()" class="toast-close">×</button>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="successToast" class="toast success-toast" style="display: none;">
+        <span id="successMessage"></span>
+        <button onclick="hideSuccessToast()" class="toast-close">×</button>
+    </div>
+
+    <footer class="footer">
+        <p>AI Course Project - Comparative Study of Search Algorithms for Emergency Routing</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

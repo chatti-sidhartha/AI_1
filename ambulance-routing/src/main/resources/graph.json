@@ -1,0 +1,129 @@
+{
+  "nodes": [
+    {
+      "id": "G",
+      "name": "GIMSR Hospital",
+      "x": 150,
+      "y": 150,
+      "type": "Hospital"
+    },
+    {
+      "id": "N",
+      "name": "NAD Junction",
+      "x": 350,
+      "y": 120,
+      "type": "Junction"
+    },
+    {
+      "id": "S",
+      "name": "Simhachalam",
+      "x": 400,
+      "y": 50,
+      "type": "Landmark"
+    },
+    {
+      "id": "H",
+      "name": "Hanumanthawaka",
+      "x": 550,
+      "y": 150,
+      "type": "Junction"
+    },
+    {
+      "id": "L",
+      "name": "Lawsons Bay Colony",
+      "x": 600,
+      "y": 300,
+      "type": "Residential"
+    },
+    {
+      "id": "A",
+      "name": "Akkayapalem",
+      "x": 100,
+      "y": 300,
+      "type": "Residential"
+    },
+    {
+      "id": "M",
+      "name": "Maddilapalem",
+      "x": 350,
+      "y": 280,
+      "type": "Residential"
+    },
+    {
+      "id": "R",
+      "name": "RTC Complex",
+      "x": 300,
+      "y": 420,
+      "type": "Bus Terminal"
+    },
+    {
+      "id": "K",
+      "name": "RK Beach",
+      "x": 550,
+      "y": 450,
+      "type": "Landmark"
+    }
+  ],
+  "edges": [
+    {
+      "from": "G",
+      "to": "N",
+      "distance": 4,
+      "defaultTraffic": "MEDIUM"
+    },
+    {
+      "from": "G",
+      "to": "A",
+      "distance": 3,
+      "defaultTraffic": "LOW"
+    },
+    {
+      "from": "N",
+      "to": "S",
+      "distance": 6,
+      "defaultTraffic": "HIGH"
+    },
+    {
+      "from": "N",
+      "to": "H",
+      "distance": 5,
+      "defaultTraffic": "MEDIUM"
+    },
+    {
+      "from": "N",
+      "to": "M",
+      "distance": 3,
+      "defaultTraffic": "MEDIUM"
+    },
+    {
+      "from": "H",
+      "to": "L",
+      "distance": 4,
+      "defaultTraffic": "MEDIUM"
+    },
+    {
+      "from": "M",
+      "to": "R",
+      "distance": 4,
+      "defaultTraffic": "HIGH"
+    },
+    {
+      "from": "A",
+      "to": "R",
+      "distance": 5,
+      "defaultTraffic": "HIGH"
+    },
+    {
+      "from": "L",
+      "to": "K",
+      "distance": 2,
+      "defaultTraffic": "LOW"
+    },
+    {
+      "from": "R",
+      "to": "K",
+      "distance": 6,
+      "defaultTraffic": "MEDIUM"
+    }
+  ]
+}
