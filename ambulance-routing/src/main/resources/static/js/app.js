@@ -31,10 +31,6 @@ const elements = {
 
 // ===== Algorithm Information =====
 const algorithmInfo = {
-    BFS: {
-        name: 'BFS (Breadth-First Search)',
-        props: ['Complete: Yes', 'Optimal: Yes (unweighted)', 'Time: O(V+E)', 'Space: O(V)']
-    },
     DFS: {
         name: 'DFS (Depth-First Search)',
         props: ['Complete: Yes', 'Optimal: No', 'Time: O(V+E)', 'Space: O(V)']
@@ -50,6 +46,14 @@ const algorithmInfo = {
     A_STAR: {
         name: 'A* Search',
         props: ['Complete: Yes', 'Optimal: Yes', 'Uses: f(n) = g(n) + h(n)', 'Best for weighted graphs']
+    },
+    GENETIC: {
+        name: 'Genetic Algorithm',
+        props: ['Complete: No', 'Optimal: No (evolutionary)', 'Population-based', 'Uses crossover & mutation']
+    },
+    ADVERSARIAL: {
+        name: 'Adversarial Search (Minimax)',
+        props: ['Complete: Yes', 'Optimal: Yes (vs adversary)', 'Alpha-Beta pruning', 'Game-theoretic approach']
     }
 };
 

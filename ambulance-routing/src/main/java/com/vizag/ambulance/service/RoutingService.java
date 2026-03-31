@@ -5,6 +5,7 @@ import com.vizag.ambulance.model.SimulationResult;
 import com.vizag.ambulance.service.algorithm.*;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -18,20 +19,22 @@ public class RoutingService {
 
     public RoutingService(
             GraphService graphService,
-            BFSAlgorithm bfs,
             DFSAlgorithm dfs,
             UCSAlgorithm ucs,
             GreedyBFSAlgorithm greedy,
-            AStarAlgorithm aStar) {
+            AStarAlgorithm aStar,
+            GeneticAlgorithm genetic,
+            AdversarialSearchAlgorithm adversarial) {
         
         this.graphService = graphService;
-        this.algorithms = Map.of(
-            "BFS", bfs,
-            "DFS", dfs,
-            "UCS", ucs,
-            "GREEDY", greedy,
-            "A_STAR", aStar
-        );
+        Map<String, SearchAlgorithm> map = new HashMap<>();
+        map.put("DFS", dfs);
+        map.put("UCS", ucs);
+        map.put("GREEDY", greedy);
+        map.put("A_STAR", aStar);
+        map.put("GENETIC", genetic);
+        map.put("ADVERSARIAL", adversarial);
+        this.algorithms = map;
     }
 
     /**
@@ -43,7 +46,7 @@ public class RoutingService {
         if (algorithm == null) {
             return SimulationResult.failure(
                 "Unknown algorithm: " + request.getAlgorithm() + 
-                ". Valid options: BFS, DFS, UCS, GREEDY, A_STAR",
+                ". Valid options: DFS, UCS, GREEDY, A_STAR, GENETIC, ADVERSARIAL",
                 request.getAlgorithm(),
                 request.getTraffic()
             );
@@ -73,7 +76,7 @@ public class RoutingService {
      * Get available algorithm names.
      */
     public String[] getAvailableAlgorithms() {
-        return new String[]{"BFS", "DFS", "UCS", "GREEDY", "A_STAR"};
+        return new String[]{"DFS", "UCS", "GREEDY", "A_STAR", "GENETIC", "ADVERSARIAL"};
     }
 
     /**
